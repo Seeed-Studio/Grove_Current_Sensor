@@ -6,7 +6,10 @@ Grove current sensor
 
 Introduction of sensor
 ----------------------------  
-2.5A current sensor is a direct current measuring no more than 2.5A, 5A/10A current sensor are like it.This can be used to measure system power consumption, realize current monitoring and so on.The current sensor outputs an analog voltage that varies linearly with current.
+>1. 2.5A current sensor is a direct current measuring no more than 2.5A.
+>2. 5A current sensor is a direct current and alternating current measuring no more than 5A.
+>3. 10A current sensor is a direct current measuring no more than 10A.
+    This can be used to measure system power consumption, realize current monitoring and so on.The current sensor outputs an analog voltage that varies linearly with current.
 
 ***
 Usage:
