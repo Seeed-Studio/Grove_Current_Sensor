@@ -35,10 +35,10 @@
 
 #ifdef ARDUINO_SAMD_VARIANT_COMPLIANCE
     #define RefVal 3.3
-    #define SERIAL SerialUSB
+    #define SER SerialUSB
 #else
     #define RefVal 5.0
-    #define SERIAL Serial
+    #define SER Serial
 #endif
 //An OLED Display is required here
 //use pin A0
@@ -68,7 +68,7 @@ float Vref = 322;  //You need test it !!!
 
 void setup() {
 
-    SERIAL.begin(9600);
+    SER.begin(9600);
 
     Wire.begin();
     SeeedOled.init();  //initialze SEEED OLED display
@@ -114,22 +114,22 @@ void loop() {
     // Print display voltage (mV)
     // This voltage is the pin voltage corresponding to the current
     /*  voltage = unitValue * sensorValue-Vref;
-        SERIAL.print(voltage);
-        SERIAL.println("mV");
+        SER.print(voltage);
+        SER.println("mV");
         SeeedOled.setTextXY(1,0);
         SeeedOled.putString("voltage: ");
         SeeedOled.putNumber(voltage);
         SeeedOled.putString("mV");*/
 
     // Print display current (mA)
-    SERIAL.print(current);
-    SERIAL.println("mA");
+    SER.print(current);
+    SER.println("mA");
     SeeedOled.setTextXY(2, 0);
     SeeedOled.putString("Current: ");
     SeeedOled.putNumber(current);
     SeeedOled.putString("mA");
 
-    SERIAL.print("\n");
+    SER.print("\n");
 
     // Reset the sensorValue for the next reading
     sensorValue = 0;

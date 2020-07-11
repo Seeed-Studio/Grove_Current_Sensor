@@ -32,10 +32,10 @@
 
 #ifdef ARDUINO_SAMD_VARIANT_COMPLIANCE
     #define RefVal 3.3
-    #define SERIAL SerialUSB
+    #define SER SerialUSB
 #else
     #define RefVal 5.0
-    #define SERIAL Serial
+    #define SER Serial
 #endif
 //An OLED Display is required here
 //use pin A0
@@ -64,7 +64,7 @@ float sensitivity = 1000.0 / 200.0; //1000mA per 200mV
 float Vref = 1508;
 
 void setup() {
-    SERIAL.begin(9600);
+    SER.begin(9600);
 }
 
 void loop() {
@@ -88,9 +88,9 @@ void loop() {
     float voltage = unitValue * sensorValue;
 
     //When no load,Vref=initialValue
-    SERIAL.print("initialValue: ");
-    SERIAL.print(voltage);
-    SERIAL.println("mV");
+    SER.print("initialValue: ");
+    SER.print(voltage);
+    SER.println("mV");
 
     // Calculate the corresponding current
     float current = (voltage - Vref) * sensitivity;
@@ -99,15 +99,15 @@ void loop() {
     // This voltage is the pin voltage corresponding to the current
     /*
         voltage = unitValue * sensorValue-Vref;
-        SERIAL.print(voltage);
-        SERIAL.println("mV");
+        SER.print(voltage);
+        SER.println("mV");
     */
 
     // Print display current (mA)
-    SERIAL.print(current);
-    SERIAL.println("mA");
+    SER.print(current);
+    SER.println("mA");
 
-    SERIAL.print("\n");
+    SER.print("\n");
 
     // Reset the sensorValue for the next reading
     sensorValue = 0;
