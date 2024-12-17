@@ -25,7 +25,11 @@
 #include "Wire.h"
 #include "SeeedOLED.h"
 
+#ifdef ESP32
+#include <pgmspace.h>
+#else
 #include <avr/pgmspace.h>
+#endif  // ifdef ESP32
 
 // 8x8 Font ASCII 32 - 127 Implemented
 // Users can modify this to support more characters(glyphs)
