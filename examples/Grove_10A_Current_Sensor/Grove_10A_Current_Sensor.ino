@@ -30,7 +30,17 @@
 */
 
 
-#ifdef ARDUINO_SAMD_VARIANT_COMPLIANCE
+#ifdef NRF52840_XXAA
+#ifdef USE_TINYUSB
+#include <Adafruit_TinyUSB.h>
+#endif
+#endif
+
+
+#ifdef SEEED_XIAO_M0
+    #define RefVal 5.0
+    #define SER Serial
+#elif defined(ARDUINO_SAMD_VARIANT_COMPLIANCE)
     #define RefVal 3.3
     #define SER SerialUSB
 #else

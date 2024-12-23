@@ -29,8 +29,16 @@
     THE SOFTWARE.
 */
 
+#ifdef NRF52840_XXAA
+#ifdef USE_TINYUSB
+#include <Adafruit_TinyUSB.h>
+#endif
+#endif
 
-#ifdef ARDUINO_SAMD_VARIANT_COMPLIANCE
+#ifdef SEEED_XIAO_M0
+    #define RefVal 5.0
+    #define SER Serial
+#elif defined(ARDUINO_SAMD_VARIANT_COMPLIANCE)
     #define RefVal 3.3
     #define SER SerialUSB
 #else
@@ -39,7 +47,12 @@
 #endif
 //An OLED Display is required here
 //use pin A0
+
+#if defined(ARDUINO_ARCH_RP2040) || defined(ARDUINO_ARCH_RP2350) || defined(CONFIG_IDF_TARGET_ESP32C3) || defined(CONFIG_IDF_TARGET_ESP32C6) 
+#define Pin D5
+#else
 #define Pin A5
+#endif
 
 // Take the average of 500 times
 
